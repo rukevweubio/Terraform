@@ -365,14 +365,5 @@ To further demonstrate connectivity, you can set up a simple PHP application on 
     $conn->close();
     ?>
     ```
-    **Remember to replace `<MySQL-Server-Private-IP>` and `your_password` with your actual values.**
+  
 
-5.  Access `http://<Nginx-Server-Public-IP>/db_test.php` in your web browser. You should see the message 
-
-"Connected to MySQL successfully!" if the connection is successful.
-
-
-
-
-
-(Content truncated due to size limit. Use line ranges to read in chunk
