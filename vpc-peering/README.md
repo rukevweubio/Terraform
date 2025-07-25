@@ -124,6 +124,7 @@ An Internet Gateway is needed for `VPC-1` if you want to access the Nginx web se
 3.  Click **Create internet gateway**.
 4.  Select the newly created Internet Gateway and click **Actions** -> **Attach to VPC**.
 5.  Select `VPC-1-Nginx` and click **Attach internet gateway**.
+![vpc perring](https://github.com/rukevweubio/Terraform/blob/main/vpc-peering/screenshot/Screenshot%20(1712).png)
 
 ### 4. Configure Route Tables
 
@@ -139,6 +140,8 @@ Update the route tables for both VPCs to allow traffic to flow through the peeri
 6.  For **Target**, select **Peering Connection** and then choose the peering connection you will create in the next step (you'll come back to this step after creating the peering connection).
 7.  If you created an Internet Gateway for VPC-1, ensure there's a route for `0.0.0.0/0` (all internet traffic) pointing to the `VPC-1-Nginx-IGW`.
 8.  Click **Save changes**.
+
+![vpc perring](https://github.com/rukevweubio/Terraform/blob/main/vpc-peering/screenshot/Screenshot%20(1714).png)
 
 **Route Table for VPC-2:**
 
@@ -161,6 +164,8 @@ Now, create the peering connection between `VPC-1` and `VPC-2`.
 5.  Click **Create peering connection**.
 6.  The peering connection will be in a `Pending Acceptance` state. Select the peering connection and click **Actions** -> **Accept request**.
 7.  Confirm the acceptance.
+
+![vpc perring](https://github.com/rukevweubio/Terraform/blob/main/vpc-peering/screenshot/Screenshot%20(1713).png)
 
 **Important:** After accepting the peering connection, go back to **Step 4** and update the route tables for both VPCs with the newly created peering connection as the target for the respective destination CIDR blocks.
 
@@ -188,6 +193,9 @@ Create and configure security groups for your EC2 instances.
     *   **Type:** MySQL/Aurora (Port 3306), **Source:** `10.0.0.0/16` (VPC-1's CIDR block - allows Nginx to connect to MySQL)
     *   **Type:** SSH, **Source:** Your IP (or `0.0.0.0/0` for testing)
 5.  Click **Create security group**.
+![vpc perring](https://github.com/rukevweubio/Terraform/blob/main/vpc-peering/screenshot/Screenshot%20(1716).png)
+
+![vpc perring](https://github.com/rukevweubio/Terraform/blob/main/vpc-peering/screenshot/Screenshot%20(1717).png)
 
 ### 7. Launch EC2 Instances
 
